@@ -77,7 +77,7 @@ N-senders can be useful to increase bundler gas throughput.
 
 ## Sender State Machine
 
-The bundle sender is implemented as an finite state machine to continuously submit bundle transactions onchain. The state machine runs as long as the builder process is running.
+The bundle sender is implemented as a finite state machine to continuously submit bundle transactions onchain. The state machine runs as long as the builder process is running.
 
 ### States
 
