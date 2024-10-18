@@ -72,7 +72,7 @@ jobs:
 
 **Local Builds**
 
-These command should only be used if you are trying to cross compile the application locally. If you just want to build cross compiled docker images, you should use the commands above.
+These commands should only be used if you are trying to cross compile the application locally. If you just want to build cross compiled docker images, you should use the commands above.
 
 
 ```
