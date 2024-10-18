@@ -84,7 +84,7 @@ This method gets the stake status of a certain address with a particular entry p
 
 This method is used by the ERC-4337 `bundler-spec-tests` but is not (yet) part of the standard.
 
-This method triggers a the mempool to drop all pending user operations, but keeps the rest of its state. In contrast to `debug_bundler_clearState` which drops all state.
+This method triggers the mempool to drop all pending user operations, but keeps the rest of its state. In contrast to `debug_bundler_clearState` which drops all state.
 
 ##### Parameters 
 
@@ -193,7 +193,7 @@ Drops a user operation from the local mempool for the given sender/nonce. The us
 
 **Notes:**
 
-- `paymasterAndData` is not required to be `0x`, but there is little use for it here, its recommended to set to `0x`.
+- `paymasterAndData` is not required to be `0x`, but there is little use for it here, it's recommended to set to `0x`.
 - `verificationGasLimit` doesn't require estimation, just set to a high number that is lower than the bundler's max verification gas, i.e. 1M.
 
 ```
@@ -368,7 +368,7 @@ Paymasters may perform more complicated logic on the fee fields, including trigg
 To correctly estimate the verification gas, a non-zero gas fee must be used. This fee must be:
 
 - Large enough that it triggers a transfer of tokens.
-  - I.e. USDC only uses 6 decimals, if the gas fee in USDC is < 1e-6 the transfer won't trigger. Its reasonable to assume that users will have a few USD cents worth of their fee token to avoid this case.
+  - I.e. USDC only uses 6 decimals, if the gas fee in USDC is < 1e-6 the transfer won't trigger. It's reasonable to assume that users will have a few USD cents worth of their fee token to avoid this case.
 - Small enough that a fee-payer with a small amount of the fee token can pay for the maximum gas.
 
 During estimation the gas cost is kept constant by varying the `maxFeePerGas` based on the current binary search guess. Therefore, as long as the fee-payer can pay for the gas cost initially, Rundler should be able to successfully estimate gas.
@@ -395,7 +395,7 @@ More information on gas estimation can be found [here](https://www.alchemy.com/b
 
 The `eth_estimateUserOperationGas` accepts an optional state override set as the 3rd positional RPC parameter. It accepts the same format as Geth's `eth_call` [state overrides](https://geth.ethereum.org/docs/interacting-with-geth/rpc/ns-eth#eth-call).
 
-This parameter can be used to modify the state of the chain before preforming gas estimation.
+This parameter can be used to modify the state of the chain before performing gas estimation.
 
 A typical use case for this could be to spoof some funds into a user's account while using an ERC-20 paymaster. Callers can override the balance (ETH, ERC20, or any arbitrary payment method) such that the fee-payer can pay the `verification_estimation_gas_fee`.
 
